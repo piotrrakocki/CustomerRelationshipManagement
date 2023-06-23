@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="/static/home-style.css" th:href="@{/home-style.css}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>CRM System</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html" th:href="home">Home</a></li>
+                <li><a href="customer_list.html" th:href="customers">Customers</a></li>
+                <li><a href="reports.html" th:href="reports">Reports</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome-section">
+            <h2>Welcome to the CRM system</h2>
+            <p>Here, you can manage your customer relationships and
+                effectively manage your business.</p>
+        </section>
+        <section class="features-section">
+            <div class="feature">
+                <h3>Contact management</h3>
+                <p>Add and edit customer contacts, create
+                    groups, and segment customers based on various
+                    criteria.</p>
+            </div>
+
+            <div class="feature">
+                <h3>Sales automation</h3>
+                <p>Automate sales and marketing processes such as
+                    sending email or SMS notifications.</p>
+            </div>
+
+            <div class="feature">
+                <h3>Customer analytics</h3>
+                <p>Analyze customer data such as purchase histories,
+                    preferences, and other information that allows
+                    for a better understanding of customer needs.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Created by Piotr Rakocki</p>
+    </footer>
+</body>
+</html>

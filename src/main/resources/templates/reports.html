@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <link rel="stylesheet" type="text/css" href="/static/reports-style.css" th:href="@{/reports-style.css}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>CRM System</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html" th:href="home">Home</a></li>
+                <li><a href="customer_list.html" th:href="customers">Customers</a></li>
+                <li><a href="reports.html" th:href="reports">Reports</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="reports-section">
+            <h2>Reports</h2>
+            <div class="reports">
+                <h3>Number of clients</h3>
+                <p>Current number of clients: <span th:text="${customerData.getNumberOfCustomers}"></span></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Created by Piotr Rakocki</p>
+    </footer>
+    
+</body>
+</html>

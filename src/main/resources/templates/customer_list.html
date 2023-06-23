@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers List</title>
+    <link rel="stylesheet" type="text/css" href="/static/customer_list-style.css" th:href="@{/customer_list-style.css}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>CRM System</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html" th:href="home">Home</a></li>
+                <li><a href="customer_list.html" th:href="customers">Customers</a></li>
+                <li><a href="reports.html" th:href="reports">Reports</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="search-section">
+            <h2>Search for customers</h2>
+            <form th:action="@{/customers}" method="get">
+                <label for="search-input">Search for a customer:</label>
+                <input type="text" id="search-input" name="searchTerm" placeholder="Enter customer's first or last name">
+                <button type="submit">Search</button>
+            </form>
+        </section>
+        <section class="clients-section">
+            <h2>Customers List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="customer : ${customers}">
+                        <td th:text="${customer.firstName}"></td>
+                        <td th:text="${customer.lastName}"></td>
+                        <td th:text="${customer.email}"></td>
+                        <td th:text="${customer.phoneNumber}"></td>
+                        <td th:text="${customer.address}"></td>
+                        <td>
+                            <a th:href="@{/viewCustomer?id=} + ${customer.id}"><button>View</button></a>
+                            <a th:href="@{/addCustomer?id=} + ${customer.id}"><button>Edit</button></a>
+                            <a th:href="@{/delete_customer?id=} + ${customer.id}"><button>Delete</button></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="add_customer.html" th:href="@{/addCustomer}">
+                <button type="submit" class="btn btn-success btn-block">Create Customer</button>
+            </a>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>Created by Piotr Rakocki</p>
+    </footer>
+</body>
+</html>

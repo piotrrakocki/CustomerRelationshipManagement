@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer RelationShip Management</title>
+    <link rel="stylesheet" type="text/css" href="/static/add_customer-style.css" th:href="@{/add_customer-style.css}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>CRM System</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html" th:href="home">Home</a></li>
+                <li><a href="customer_list.html" th:href="customers">Customers</a></li>
+                <li><a href="reports.html" th:href="reports">Reports</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="add-section">
+            <h2>Customer</h2>
+            <form action="#" th:object="${customer}" method="POST">
+                <div style="color: red;" th:text="${error}"></div>
+                <table>
+                    <tr>
+                        <td>
+                            <label>ID</label>
+                        </td>
+                        <td>
+                            <input disabled="true"
+                                id="id"
+                                th:placeholder="${customer.id}"
+                            >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>First Name</label>
+                        </td>
+                        <td>
+                            <input type="text"
+                                th:field="*{firstName}"
+                                id="firstName"
+                                placeholder="First Name"
+                            >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Last Name</label>
+                        </td>
+                        <td>
+                            <input type="text"
+                                th:field="*{lastName}"
+                                id="lastName"
+                                placeholder="Last Name"
+                            >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Email</label>
+                        </td>
+                        <td>
+                            <input type="text"
+                                th:field="*{email}"
+                                id="email"
+                                placeholder="Email"
+                            >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Phone</label>
+                        </td>
+                        <td>
+                            <input type="text"
+                                th:field="*{phoneNumber}"
+                                id="phoneNumber"
+                                placeholder="Phone"
+                            >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Address</label>
+                        </td>
+                        <td>
+                            <input type="text"
+                                th:field="*{address}"
+                                id="address"
+                                placeholder="Address"
+                            >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit">Create Customer</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>Created by Piotr Rakocki</p>
+    </footer>
+</body>
+</html>
